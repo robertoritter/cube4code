@@ -1,6 +1,6 @@
 # Cube4Code institutional website
 
-Static, responsive landing page built with plain HTML, CSS, and vanilla JavaScript. No build step, no dependencies.
+A Static, responsive landing page built with plain HTML, CSS, and vanilla JavaScript. No build step, no dependencies.
 
 ## Run locally
 
