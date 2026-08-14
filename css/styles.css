@@ -173,7 +173,7 @@ h1, h2, h3, p, ul, ol {
   display: flex;
   align-items: center;
   gap: 24px;
-  min-height: 84px;
+  min-height: 132px;
 }
 
 .brand {
