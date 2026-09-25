@@ -215,12 +215,6 @@ h1, h2, h3, p, ul, ol {
   display: block;
 }
 
-.brand-word {
-  font-size: 1.05rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-}
-
 /* Header brand: canonical cube + HTML wordmark (not translated) */
 
 .brand-header {
@@ -1090,6 +1084,22 @@ footer {
   justify-content: space-between;
   gap: 20px;
   min-height: 108px;
+}
+
+/* Footer brand: same canonical construction as the header, smaller */
+
+.brand-footer {
+  gap: 10px;
+}
+
+.brand-footer .brand-cube {
+  width: 30px;
+  height: auto;
+  aspect-ratio: 326 / 360;
+}
+
+.brand-footer .wordmark {
+  font-size: 1.08rem;
 }
 
 .footer-nav {
