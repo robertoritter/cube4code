@@ -3,14 +3,15 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#0E2F59">
+    <meta name="theme-color" content="#070B14">
     <meta name="description" content="Cube4Code decomposes complex software problems into understandable modules, builds each piece with quality, and assembles solutions that scale.">
     <title>Cube4Code — Complex software doesn't have to be complicated.</title>
-    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="assets/cube4code.png">
+    <link rel="icon" href="assets/images/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="assets/images/favicon-48.png" sizes="48x48" type="image/png">
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/main.js" defer></script>
   </head>
@@ -95,9 +96,11 @@
 
     <header class="site-header" id="site-header">
       <div class="container header-inner">
-        <a class="brand" href="#top" aria-label="Cube4Code home">
-          <img src="assets/cube4code.png" alt="Cube4Code" width="100" height="100">
-          <span class="brand-word">Cube4Code</span>
+        <a class="brand brand-header" href="#top" aria-label="Cube4Code home">
+          <img class="brand-cube" src="assets/images/cube4code-cube-44.png"
+               srcset="assets/images/cube4code-cube-44.png 1x, assets/images/cube4code-cube-88.png 2x, assets/images/cube4code-cube-132.png 3x"
+               alt="" width="40" height="44">
+          <span class="wordmark">Cube<span class="wordmark-4">4</span>Code</span>
         </a>
 
         <nav class="desktop-nav" aria-label="Primary navigation">
@@ -131,21 +134,41 @@
         <a href="#projects" data-i18n="navProjects">Projects</a>
         <a href="#about" data-i18n="navAbout">About</a>
         <a href="#contact" data-i18n="navContact">Contact</a>
-        <div class="language-switcher" role="group" aria-label="Language">
-          <button type="button" data-language="en" aria-pressed="true">EN</button>
-          <button type="button" data-language="pt" aria-pressed="false">PT</button>
+        <div class="mobile-nav-actions">
+          <div class="language-switcher" role="group" aria-label="Language">
+            <button type="button" data-language="en" aria-pressed="true">EN</button>
+            <button type="button" data-language="pt" aria-pressed="false">PT</button>
+          </div>
+          <a class="button button-primary button-small" href="#contact">
+            <span data-i18n="navCta">Let's Build Together</span>
+          </a>
         </div>
       </nav>
     </header>
 
     <main id="main">
       <section class="hero" id="top">
+        <div class="hero-code" aria-hidden="true">
+          <pre class="hero-code-a">template &lt;typename Piece&gt;
+struct Module {
+    std::array&lt;Piece, 27&gt; parts;
+    constexpr std::size_t size() const { return parts.size(); }
+};</pre>
+          <pre class="hero-code-b">for (const auto&amp; piece : problem.decompose()) {
+    system.assemble(engineer(piece));
+}</pre>
+          <pre class="hero-code-c">static_assert(sizeof(Cube) == 3 * 3 * 3 * sizeof(Piece));</pre>
+          <pre class="hero-code-d">namespace c4c {
+    std::vector&lt;Module&gt; split(const Problem&amp; p);
+}</pre>
+        </div>
+
         <div class="container hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow" data-i18n="heroEyebrow">Software Architecture &amp; Engineering</p>
+            <p class="eyebrow" data-i18n="heroEyebrow">Software products · Data platforms · Engineering</p>
             <h1 data-i18n="heroTitle">Complex software doesn't have to be complicated.</h1>
-            <p class="hero-subtitle" data-i18n="heroSubtitle">Every complex system can be broken into understandable pieces.</p>
-            <p class="hero-lead" data-i18n="heroLead">Cube4Code designs, builds and integrates software by decomposing problems into modular solutions that scale.</p>
+            <p class="hero-subtitle" data-i18n="heroSubtitle">We build software products and data platforms by breaking complex problems into understandable pieces.</p>
+            <p class="hero-lead" data-i18n="heroLead">Each piece is understood, engineered with care and assembled into a system that works — and keeps working.</p>
             <div class="hero-actions">
               <a class="button button-primary" href="#contact">
                 <span data-i18n="heroCtaPrimary">Start a Project</span>
@@ -156,30 +179,45 @@
             </div>
           </div>
 
-          <div class="cube-wrap" aria-hidden="true">
-            <div class="cube-scene">
-              <svg class="cube-links" viewBox="0 0 320 320">
-                <path d="M160 160 90 100"/>
-                <path d="M160 160 235 95"/>
-                <path d="M160 160 90 225"/>
-                <path d="M160 160 235 230"/>
-                <path d="M160 160 160 40"/>
-                <circle cx="90" cy="100" r="4"/>
-                <circle cx="235" cy="95" r="4"/>
-                <circle cx="90" cy="225" r="4"/>
-                <circle cx="235" cy="230" r="4"/>
-                <circle cx="160" cy="40" r="4"/>
+          <div class="hero-visual">
+            <div class="hero-stage" aria-hidden="true">
+              <svg class="hero-schematic" viewBox="0 0 440 440" focusable="false">
+                <defs>
+                  <g id="hero-module">
+                    <path class="module-top" d="M0 -17 14.7 -8.5 0 0 -14.7 -8.5Z"/>
+                    <path d="M0 -17 14.7 -8.5V8.5L0 17-14.7 8.5V-8.5Z"/>
+                    <path d="M-14.7 -8.5 0 0 14.7 -8.5M0 0V17"/>
+                  </g>
+                </defs>
+                <path class="schematic-frame" d="M220 22 391.5 121V319L220 418 48.5 319V121Z"/>
+                <path class="schematic-ticks" d="M220 8v10M220 422v10M36 114l8 4.5M396 114l-8 4.5M36 326l8-4.5M396 326l-8-4.5"/>
+                <g class="schematic-links">
+                  <path d="M220 220 56 124"/>
+                  <path d="M220 220 384 124"/>
+                  <path d="M220 220 56 316"/>
+                  <path d="M220 220 384 316"/>
+                </g>
+                <g class="module module-1"><use href="#hero-module" transform="translate(56 124)"/></g>
+                <g class="module module-2 module-accent"><use href="#hero-module" transform="translate(384 124)"/></g>
+                <g class="module module-3"><use href="#hero-module" transform="translate(56 316)"/></g>
+                <g class="module module-4"><use href="#hero-module" transform="translate(384 316)"/></g>
               </svg>
-              <div class="cube">
-                <span class="face face-top"></span>
-                <span class="face face-front"></span>
-                <span class="face face-right"></span>
-              </div>
-              <div class="piece piece-1"><span class="face face-top"></span><span class="face face-front"></span><span class="face face-right"></span></div>
-              <div class="piece piece-2"><span class="face face-top"></span><span class="face face-front"></span><span class="face face-right"></span></div>
-              <div class="piece piece-3"><span class="face face-top"></span><span class="face face-front"></span><span class="face face-right"></span></div>
-              <div class="piece piece-4"><span class="face face-top"></span><span class="face face-front"></span><span class="face face-right"></span></div>
+              <picture class="hero-cube">
+                <source type="image/webp"
+                        srcset="assets/images/cube4code-cube-360.webp 326w, assets/images/cube4code-cube-720.webp 653w, assets/images/cube4code-cube-1080.webp 979w"
+                        sizes="(max-width: 640px) 184px, (max-width: 900px) 218px, 272px">
+                <img src="assets/images/cube4code-cube-360.png"
+                     srcset="assets/images/cube4code-cube-360.png 326w, assets/images/cube4code-cube-720.png 653w"
+                     sizes="(max-width: 640px) 184px, (max-width: 900px) 218px, 272px"
+                     alt="" width="326" height="360" fetchpriority="high">
+              </picture>
             </div>
+            <ol class="hero-flow">
+              <li data-i18n="heroFlow1">Problem</li>
+              <li data-i18n="heroFlow2">Pieces</li>
+              <li data-i18n="heroFlow3">Engineering</li>
+              <li data-i18n="heroFlow4">System</li>
+            </ol>
           </div>
         </div>
       </section>

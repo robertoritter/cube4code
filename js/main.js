@@ -11,12 +11,16 @@ const translations = {
     navContact: "Contact",
     navCta: "Let's Build Together",
 
-    heroEyebrow: "Software Architecture & Engineering",
+    heroEyebrow: "Software products · Data platforms · Engineering",
     heroTitle: "Complex software doesn't have to be complicated.",
-    heroSubtitle: "Every complex system can be broken into understandable pieces.",
-    heroLead: "Cube4Code designs, builds and integrates software by decomposing problems into modular solutions that scale.",
+    heroSubtitle: "We build software products and data platforms by breaking complex problems into understandable pieces.",
+    heroLead: "Each piece is understood, engineered with care and assembled into a system that works — and keeps working.",
     heroCtaPrimary: "Start a Project",
     heroCtaSecondary: "See Our Work",
+    heroFlow1: "Problem",
+    heroFlow2: "Pieces",
+    heroFlow3: "Engineering",
+    heroFlow4: "System",
 
     howTitle: "Every solution starts with decomposition.",
     howStep1Title: "Understand",
@@ -99,12 +103,16 @@ const translations = {
     navContact: "Contato",
     navCta: "Vamos Construir Juntos",
 
-    heroEyebrow: "Arquitetura & Engenharia de Software",
+    heroEyebrow: "Produtos de software · Plataformas de dados · Engenharia",
     heroTitle: "Software complexo não precisa ser complicado.",
-    heroSubtitle: "Todo sistema complexo pode ser dividido em peças compreensíveis.",
-    heroLead: "A Cube4Code projeta, constrói e integra software decompondo problemas em soluções modulares que escalam.",
+    heroSubtitle: "Construímos produtos de software e plataformas de dados dividindo problemas complexos em peças compreensíveis.",
+    heroLead: "Cada peça é compreendida, desenvolvida com rigor e montada em um sistema que funciona — e continua funcionando.",
     heroCtaPrimary: "Iniciar um Projeto",
     heroCtaSecondary: "Ver Nosso Trabalho",
+    heroFlow1: "Problema",
+    heroFlow2: "Peças",
+    heroFlow3: "Engenharia",
+    heroFlow4: "Sistema",
 
     howTitle: "Toda solução começa pela decomposição.",
     howStep1Title: "Entender",
@@ -249,6 +257,11 @@ window.addEventListener("scroll", updateHeaderState, { passive: true });
 
 const navToggle = document.getElementById("nav-toggle");
 
+function closeNav() {
+  header.classList.remove("nav-open");
+  navToggle.setAttribute("aria-expanded", "false");
+}
+
 if (navToggle && header) {
   navToggle.addEventListener("click", () => {
     const isOpen = header.classList.toggle("nav-open");
@@ -256,9 +269,19 @@ if (navToggle && header) {
   });
 
   header.querySelectorAll(".mobile-nav a").forEach((link) => {
-    link.addEventListener("click", () => {
-      header.classList.remove("nav-open");
-      navToggle.setAttribute("aria-expanded", "false");
-    });
+    link.addEventListener("click", closeNav);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && header.classList.contains("nav-open")) {
+      closeNav();
+      navToggle.focus();
+    }
+  });
+
+  document.addEventListener("click", (event) => {
+    if (header.classList.contains("nav-open") && !header.contains(event.target)) {
+      closeNav();
+    }
   });
 }
